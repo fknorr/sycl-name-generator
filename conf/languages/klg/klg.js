@@ -1,3 +1,5 @@
+//Credits https://github.com/PanderMusubi/klingon/
+
 const words = [
 "'I'",
 "'I' ghew",

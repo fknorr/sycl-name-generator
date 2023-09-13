@@ -1,3 +1,5 @@
+// Credits https://github.com/napolux/paroleitaliane
+
 const words = [
 "a",
 "abbandonare",

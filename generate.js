@@ -1,6 +1,3 @@
-
-import {language_dict} from "./conf/languages/languages.js"
-
 const leftBrands = ["SYCL", "Sycl", "Cpp", "CPP", "C++", "one"];
 const rightBrands = ["SYCL", "Sycl", "Cpp", "CPP", "C++", "++"];
 const fonts = ["Comic Sans MS", "Papyrus", "Arial Black", "Times New Roman"];
@@ -13,17 +10,17 @@ String.prototype.toProperCase = function () {
     return this.replace(/\w\S*/g, function (txt) { return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase(); });
 };
 
-export function generateSyclName(lang) {
+function generateSyclName(word_list) {
     let left, right;
     if (Math.random() > 0.3) {
-        left = chooseFrom(language_dict[lang]);
+        left = chooseFrom(word_list);
         right = chooseFrom(rightBrands);
         if (Math.random() > 0.3) {
             left = left.toProperCase();
         }
     } else {
         left = chooseFrom(leftBrands);
-        right = chooseFrom(language_dict[lang]);
+        right = chooseFrom(word_list);
     }
     if (left.charAt(left.length - 1) == left.charAt(left.length - 1).toLowerCase() && right.charAt(0) == right.charAt(0).toLowerCase()) {
         right = right.toProperCase();
@@ -68,7 +65,7 @@ function hueToRgb(p, q, t) {
   if (t < 2/3) return p + (q - p) * (2/3 - t) * 6;
   return p;
 }
-export function generateStyle() {
+function generateStyle() {
     const leftFont = chooseFrom(fonts);
     const rightFont = chooseFrom(fonts);
     const leftColor = hslToRgb(Math.random(), 0.75, 0.5);

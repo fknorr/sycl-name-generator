@@ -1,6 +1,6 @@
 //Credits https://github.com/PanderMusubi/klingon/
 
-const words = [
+const klg_words = [
 "'I'",
 "'I' ghew",
 "'I'SeghIm",
@@ -4389,5 +4389,3 @@ const words = [
 "yuvtlhe'",
 "yuwey",
 ];
-
-export {words}

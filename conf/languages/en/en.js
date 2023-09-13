@@ -1,6 +1,6 @@
 // Credit: https://www.keithv.com/software/wlist/
 
-const words = [
+const en_words = [
 "aaron",
 "ab",
 "aback",
@@ -26682,5 +26682,3 @@ const words = [
 "zulu",
 "zurich",
 ];
-
-export {words}

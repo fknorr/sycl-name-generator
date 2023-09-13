@@ -1,6 +1,6 @@
 // Credits https://github.com/napolux/paroleitaliane
 
-const words = [
+const it_words = [
 "a",
 "abbandonare",
 "abbastanza",
@@ -1162,5 +1162,3 @@ const words = [
 "zitto",
 "zona"
 ];
-
-export {words}

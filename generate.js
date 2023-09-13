@@ -73,7 +73,7 @@ function generateStyle() {
     const scale = Math.random() * 200 + 300;
     const rot = Math.random() * 40 - 20;
     return [
-        `margin-bottom: 3cm; color: white; transform: scale(${scale}%) rotate(${rot}deg)`,
+        `transition: .2s; color: white; transform: scale(${scale}%) rotate(${rot}deg)`,
         `font-family: ${leftFont}; color: rgb(${leftColor[0]}, ${leftColor[1]}, ${leftColor[2]})`,
         `font-family: ${rightFont}; color: rgb(${rightColor[0]}, ${rightColor[1]}, ${rightColor[2]})`
     ]

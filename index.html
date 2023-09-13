@@ -1,7 +1,8 @@
 <!DOCTYPE html>
-<html lang="en" style="height: 100%; background-color: black; font-size: 20pt">
+<html lang="en" style="height: 100%; background-color: black; font-size: 20pt; overflow: hidden">
 
 <head>
+    <meta charset="UTF-8">
     <title>SYCL name generator</title>
     <!-- ADD LANGUAGES -->
     <script src="conf/languages/en/en.js"></script>
@@ -15,12 +16,14 @@
 
 <body style="height: 100%; display: flex; align-items: center; justify-content: center; flex-direction: column;">
     <div id="sycl-name"><span id="sycl-name-left"></span><span id="sycl-name-right"></span></div>
-    <div><select name="language" id="lang-sel">
-        <option value="en">English</option>
-        <option value="it">Italian</option>
-        <option value="klg">Klingon</option>
-    </select></div>
-    <div><input type="button" id="gen-button" onclick="renew()" value="Another one!"></div>
+    <div style="margin-top: 4cm">
+        <select name="language" id="lang-sel" style="font-size: 16pt">
+            <option value="en">English</option>
+            <option value="it">Italian</option>
+            <option value="klg">Klingon</option>
+        </select>
+        <input type="button" id="gen-button" onclick="renew()" style="font-size: 16pt" value="↻ Another one!">
+    </div>
 </body>
 <script>
     function renew() {

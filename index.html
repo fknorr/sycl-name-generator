@@ -3,17 +3,29 @@
 
 <head>
     <title>SYCL name generator</title>
-    <script src="words.js"></script>
+    <!-- ADD LANGUAGES -->
+    <script src="conf/languages/en/en.js"></script>
+    <script src="conf/languages/it/it.js"></script>
+    <script src="conf/languages/klg/klg.js"></script>
+    <!-- BUILD LANGUAGE DICT -->
+    <script src="conf/languages/languages.js"></script>
+    <!-- FANCY NAME GENERATION MAGIC -->
     <script src="generate.js"></script>
 </head>
 
 <body style="height: 100%; display: flex; align-items: center; justify-content: center; flex-direction: column;">
     <div id="sycl-name"><span id="sycl-name-left"></span><span id="sycl-name-right"></span></div>
-    <div><input type="button" onclick="renew();" value="Another one!"></div>
+    <div><select name="language" id="lang-sel">
+        <option value="en">English</option>
+        <option value="it">Italian</option>
+        <option value="klg">Klingon</option>
+    </select></div>
+    <div><input type="button" id="gen-button" onclick="renew()" value="Another one!"></div>
 </body>
 <script>
     function renew() {
-        const [leftName, rightName] = generateSyclName();
+        lang = document.querySelector("#lang-sel option:checked").value
+        const [leftName, rightName] = generateSyclName(language_dict[lang]);
         const [outerStyle, leftStyle, rightStyle] = generateStyle();
         document.querySelector('#sycl-name').style = outerStyle;
         document.querySelector('#sycl-name-left').textContent = leftName;
@@ -21,7 +33,7 @@
         document.querySelector('#sycl-name-right').textContent = rightName;
         document.querySelector('#sycl-name-right').style = rightStyle;
     }
-    renew();
+    renew()
 </script>
 
 </html>

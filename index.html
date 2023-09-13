@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" style="height: 100%; background-color: black; font-size: 20pt">
+
+<head>
+    <title>SYCL name generator</title>
+    <script src="words.js"></script>
+    <script src="generate.js"></script>
+</head>
+
+<body style="height: 100%; display: flex; align-items: center; justify-content: center; flex-direction: column;">
+    <div id="sycl-name"><span id="sycl-name-left"></span><span id="sycl-name-right"></span></div>
+    <div><input type="button" onclick="renew();" value="Another one!"></div>
+</body>
+<script>
+    function renew() {
+        const [leftName, rightName] = generateSyclName();
+        const [outerStyle, leftStyle, rightStyle] = generateStyle();
+        document.querySelector('#sycl-name').style = outerStyle;
+        document.querySelector('#sycl-name-left').textContent = leftName;
+        document.querySelector('#sycl-name-left').style = leftStyle;
+        document.querySelector('#sycl-name-right').textContent = rightName;
+        document.querySelector('#sycl-name-right').style = rightStyle;
+    }
+    renew();
+</script>
+
+</html>

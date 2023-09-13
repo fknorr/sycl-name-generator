@@ -3,25 +3,30 @@
 
 <head>
     <title>SYCL name generator</title>
-    <script src="words.js"></script>
-    <script src="generate.js"></script>
 </head>
 
 <body style="height: 100%; display: flex; align-items: center; justify-content: center; flex-direction: column;">
     <div id="sycl-name"><span id="sycl-name-left"></span><span id="sycl-name-right"></span></div>
-    <div><input type="button" onclick="renew();" value="Another one!"></div>
+    <div><select name="language" id="lang-sel">
+        <option value="en">English</option>
+        <option value="it">Italian</option>
+        <option value="klg">Klingon</option>
+    </select></div>
+    <div><input type="button" id="gen-button" value="Another one!"></div>
 </body>
-<script>
+<script type="module">
+    import { generateStyle } from "./generate.js"
+    import { generateSyclName } from "./generate.js"
     function renew() {
-        const [leftName, rightName] = generateSyclName();
         const [outerStyle, leftStyle, rightStyle] = generateStyle();
+        const [leftName, rightName] = generateSyclName(document.querySelector("#lang-sel option:checked").value);
         document.querySelector('#sycl-name').style = outerStyle;
         document.querySelector('#sycl-name-left').textContent = leftName;
         document.querySelector('#sycl-name-left').style = leftStyle;
         document.querySelector('#sycl-name-right').textContent = rightName;
         document.querySelector('#sycl-name-right').style = rightStyle;
     }
-    renew();
+    document.querySelector('#gen-button').addEventListener('click', renew)
 </script>
 
 </html>

@@ -50,10 +50,6 @@
         const screenshotTarget = document.querySelector("#sycl-name");
         html2canvas(screenshotTarget, {backgroundColor : null}).then((canvas) => {
             const base64image = canvas.toDataURL("image/png");
-            // var a = document.createElement("a"); //Create <a>
-            // a.href = 'data:application/octet-stream;base64,' + base64image;
-            // a.download = "Image.png"; //File name Here
-            //a.click(); //Downloaded file
             let syclName = `${document.querySelector("#sycl-name-left").textContent}${document.querySelector("#sycl-name-right").textContent}`;
             downloadBase64File(base64image, `${syclName}.png`);
         });

@@ -4,6 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <title>SYCL name generator</title>
+    <!-- Utils -->
+    <script src="deps/html2canvas.js"></script>
     <!-- ADD LANGUAGES -->
     <script src="conf/languages/en/en.js"></script>
     <script src="conf/languages/it/it.js"></script>
@@ -12,6 +14,7 @@
     <script src="conf/languages/languages.js"></script>
     <!-- FANCY NAME GENERATION MAGIC -->
     <script src="generate.js"></script>
+    <script src="utils.js"></script>
 </head>
 
 <body style="height: 100%; display: flex; align-items: center; justify-content: center; flex-direction: column;">
@@ -23,6 +26,9 @@
             <option value="klg">Klingon</option>
         </select>
         <input type="button" id="gen-button" onclick="renew()" style="font-size: 16pt" value="↻ Another one!">
+    </div>
+    <div style="margin-top: 5px;">
+        <input type="button" id="download-button" onclick="downloadSyclName()" style="font-size: 16pt" value="⇩ Get it! ⇩">
     </div>
 </body>
 <script>
@@ -37,6 +43,17 @@
         document.querySelector('#sycl-name-right').style = rightStyle;
     }
     renew()
+</script>
+
+<script>
+    function downloadSyclName(){
+        const screenshotTarget = document.querySelector("#sycl-name");
+        html2canvas(screenshotTarget, {backgroundColor : null}).then((canvas) => {
+            const base64image = canvas.toDataURL("image/png");
+            let syclName = `${document.querySelector("#sycl-name-left").textContent}${document.querySelector("#sycl-name-right").textContent}`;
+            downloadBase64File(base64image, `${syclName}.png`);
+        });
+    }
 </script>
 
 </html>
